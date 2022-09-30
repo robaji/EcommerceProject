@@ -1,0 +1,147 @@
+<div class="container mt-5">
+    <div class="row">
+        <h6 [innerText]=[customerHello]></h6>
+        <div class="col-2"></div>
+        <div class="col-8">
+            <!-- <button type="button" class="btn btn-success" (click)="toggleBookForm()">Add a New Book</button>
+            <div *ngIf="showAddBookForm">
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <form #myForm="ngForm" (ngSubmit)="addBook()">
+                            <div class="card mt-3">
+                                <div class="card-title bg-success text-white">ADD A NEW BOOK</div>
+                                <div class="card-body">
+                                    <div class="mb-3 mt-3">
+                                        <label for="bTitle" class="form-label">Book Title:</label>
+                                        <input 
+                                            type="text" 
+                                            class="form-control" 
+                                            id="bTitle" 
+                                            placeholder="Enter book title"
+                                            name="bookTitle"
+                                            [(ngModel)]="newBook.bookTitle"
+                                            #bTittle="ngModel"
+                                            (change)="logTittle(bTittle)"
+                                            required>
+                                        <div class="text-danger small" *ngIf="!bTittle.valid && bTittle.touched">
+                                            Book Title is required!
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="bAuthor" class="form-label">Book Authur:</label>
+                                        <input 
+                                            type="text" 
+                                            class="form-control" 
+                                            id="bAuthor"
+                                            placeholder="Enter book authur" 
+                                            name="bookAuthor"
+                                            [(ngModel)]="newBook.bookAuthor"
+                                            #bAuthor="ngModel"
+                                            required>
+                                        <div class="text-danger small" *ngIf="!bAuthor.valid && bAuthor.touched">
+                                            Book Author is required!
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 mt-3">
+                                        <label for="bGenre" class="form-label">Book Genre:</label>
+                                        <input 
+                                            type="text" 
+                                            class="form-control" 
+                                            id="bGenre" 
+                                            placeholder="Enter book genre"
+                                            name="bookGenre"
+                                            [(ngModel)]="newBook.bookGenre"
+                                            #bGenre="ngModel"
+                                            required>
+                                        <div class="text-danger small" *ngIf="!bGenre.valid && bGenre.touched">
+                                            Book Genre is required!
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 mt-3">
+                                        <label for="bCost" class="form-label">Book Cost:</label>
+                                        <input 
+                                            type="text" 
+                                            class="form-control" 
+                                            id="bCost" 
+                                            placeholder="Enter book cost"
+                                            name="bookCost"
+                                            [(ngModel)]="newBook.bookCost"
+                                            #bCost="ngModel"
+                                            required>
+                                        <div class="text-danger small" *ngIf="!bCost.valid && bCost.touched">
+                                            Book Cost is required!
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 mt-3">
+                                        <label for="bImage" class="form-label">Book Image URL:</label>
+                                        <input 
+                                            type="text" 
+                                            class="form-control" 
+                                            id="bImage" 
+                                            placeholder="Enter image url"
+                                            name="bookImage"
+                                            [(ngModel)]="newBook.bookImageUrl"
+                                            #bImage="ngModel"
+                                            required>
+                                        <div class="text-danger small" *ngIf="!bImage.valid && bImage.touched">
+                                            Book Image URL is required!
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-success">
+                                    <button 
+                                        type="submit" 
+                                        class="btn btn-warning"
+                                        [disabled]="!myForm.valid"
+                                        >ADD</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+
+            </div> -->
+
+            
+            <h3>BOOKS FOR SALE</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>IMAGE</th>
+                        <th>TITLE</th>
+                        <th>AUTHOR</th>
+                        <!-- <th>GENRE</th> -->
+                        <th>COST</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let eachBook of allBooks">
+                        <td>{{ eachBook.bookId }}</td>
+                        <td><img [src]="eachBook.bookImageUrl" height="200px" width="120px"></td>
+                        <td>{{ eachBook.bookTitle }}</td>
+                        <td>{{ eachBook.bookAuthor }}</td>
+                        <!-- <td>{{ eachBook.bookGenre }}</td> -->
+                        <td>${{ eachBook.bookCost }}</td>
+                        <td>
+                            <button type="button" class="btn btn-success" (click)="addBook(eachBook.bookId, eachBook.bookTitle, eachBook.bookCost)">
+                                <span class="material-symbols-outlined">shopping_cart</span>
+                            </button>
+                        </td>
+                        <!-- <td>
+                            <button type="button" class="btn btn-danger" (click)="deleteBook(eachBook.bookId)">
+                                <span class="material-symbols-outlined">delete</span>
+                            </button>
+                        </td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+</div>

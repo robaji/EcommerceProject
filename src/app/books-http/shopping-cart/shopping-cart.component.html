@@ -1,0 +1,45 @@
+<div class="container mt-5">
+    <div class="row">
+        <h6 [innerText]=[customerHello]></h6>
+        <div class="col-2"></div>
+        <div class="col-8">
+            <h3>SHOPPING CART</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>BOOK ID</th>
+                        <!-- <th>IMAGE</th> -->
+                        <th>TITLE</th>
+                        <!-- <th>AUTHOR</th> -->
+                        <th>QUANTITY</th>
+                        <th>COST</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let eachBook of cartBooks">
+                        <td>{{ eachBook.bookId }}</td>
+                        <!-- <td><img [src]="eachBook.bookImageUrl" height="200px" width="120px"></td> -->
+                        <td>{{ eachBook.bookTitle }}</td>
+                        <!-- <td>{{ eachBook.bookAuthor }}</td> -->
+                        <td>{{ eachBook.quantity }}</td>
+                        <td>${{ eachBook.bookCost }}</td>
+                        <td>
+                            <button type="button" class="btn btn-danger" (click)="deleteBook(eachBook.bookId)">
+                                <span class="material-symbols-outlined">delete</span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+        
+        <div class="col-2" style="float:right;"><button type="button" class="btn btn-success" (click)="checkout()">
+            CHECKOUT
+            <span class="material-symbols-outlined">shopping_cart_checkout</span>
+            </button></div>
+    </div>
+
+</div>

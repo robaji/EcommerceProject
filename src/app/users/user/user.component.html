@@ -1,0 +1,92 @@
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-4">
+        <form (ngSubmit)="login()">
+            <div class="card mt-3">
+                <div class="card-title text-light" style="background-color: #297096"><h2>LOGIN</h2></div>
+                <div class="card-body">
+                    <div class="mb-3 mt-3">
+                        <div *ngIf="errorMessage" class="text-danger small">{{ errorMessage }}</div>
+                        <label for="userName" class="form-label">Email:</label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            id="userName" 
+                            placeholder="Enter user email"
+                            name="uName"
+                            [(ngModel)]="user.email" required minlength="3">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password:</label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            id="password"
+                            placeholder="Enter password" 
+                            name="uPassword"
+                            [(ngModel)]="user.password" required minlength="3">
+                    </div> 
+                </div>
+                <div class="card-footer" style="background-color: #297096">
+                    <button type="submit" class="btn btn-warning">LOGIN</button>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+    <div class="col-4">
+        <form (ngSubmit)="register()">
+        <div class="card mt-3">
+            <div class="card-title text-light" style="background-color: #297096"><h2>REGISTER NEW USER</h2></div>
+            <div class="card-body">
+                <div class="mb-3 mt-3">
+                    <div *ngIf="errorMessage" class="text-danger small">{{ errorMessage }}</div>
+                    <label for="userName" class="form-label">Email:</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="userName" 
+                        placeholder="Enter user email"
+                        name="uName"
+                        [(ngModel)]="user.email" required minlength="3">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password:</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="password"
+                        placeholder="Enter password" 
+                        name="uPassword"
+                        [(ngModel)]="user.password" required minlength="3">
+                </div>
+                <div class="mb-3">
+                    <label for="firstname" class="form-label">First Name:</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="password"
+                        placeholder="Enter first name" 
+                        name="uFirstName"
+                        [(ngModel)]="user.firstname" required minlength="3">
+                </div> 
+                <div class="mb-3">
+                    <label for="lastname" class="form-label">Last Name:</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="password"
+                        placeholder="Enter last name" 
+                        name="uLastName"
+                        [(ngModel)]="user.lastname" required minlength="3">
+                </div>  
+            </div>
+            <div class="card-footer" style="background-color: #297096">
+                <button type="submit" class="btn btn-warning">REGISTER</button>
+            </div>
+        </div>
+    </form>
+    </div>
+    <div class="col-2"></div>
+</div>
+
