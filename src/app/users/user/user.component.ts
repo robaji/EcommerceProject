@@ -1,5 +1,6 @@
 import { ResourceLoader } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, NgModel, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginAccount } from 'src/app/books-http/login-account.model';
 import { AuthService } from '../auth.service';
@@ -13,6 +14,8 @@ import { UserService } from '../user.service';
 })
 export class UserComponent implements OnInit {
   errorMessage: string = "";
+  errorRegisterMessage: string = "";
+
   user: LoginAccount = {
     accountId: 0,
     email: "",
@@ -20,14 +23,27 @@ export class UserComponent implements OnInit {
     firstname: "",
     lastname: ""
   }
-  constructor(private userService: UserService, private router: Router, private authService: AuthService) { }
+
+  registration: LoginAccount = {
+    accountId: 0,
+    email: "",
+    password: "",
+    firstname: "",
+    lastname: ""
+  }
+
+  constructor(private userService: UserService, private router: Router, private authService: AuthService) { 
+
+  }
 
   ngOnInit(): void {
   }
 
   login(){
-   
-    this.userService.validate(this.user).subscribe(((response) => {
+    if((this.user.email.length == 0 ) || (this.user.password.length == 0)) {
+      this.errorMessage = 'Email and Password must not be blank!';
+    } else {
+      this.userService.validate(this.user).subscribe(((response) => {
     if(response.accountId != 0){
 
         this.authService.isLoggedIn = true;
@@ -41,13 +57,13 @@ export class UserComponent implements OnInit {
       this.errorMessage = 'Invalid username/password';
     }})
     
-    )}
+    )}}
 
     register(){
-      if((this.user.email = "") || (this.user.password = "") || (this.user.firstname = "") || (this.user.lastname = "")) {
-        this.errorMessage = "Registration fields must not be blank!"
+      if((this.registration.email.length == 0 ) || (this.registration.password.length == 0) || (this.registration.firstname.length == 0) || (this.registration.lastname.length == 0)) {
+        this.errorRegisterMessage = "Registration fields must not be blank!"
       } else {
-      this.userService.register(this.user).subscribe(((response) => {
+      this.userService.register(this.registration).subscribe(((response) => {
       location.reload();
       }))}
       

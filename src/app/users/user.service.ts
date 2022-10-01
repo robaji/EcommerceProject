@@ -22,8 +22,8 @@ export class UserService {
        return this.httpClient.post<LoginAccount>(this.loginUrl, user);
     }
   
-  register(user: LoginAccount): Observable<void>{
-      return this.httpClient.post<void>(this.registerUrl, user);
+  register(registration: LoginAccount): Observable<void>{
+      return this.httpClient.post<void>(this.registerUrl, registration);
   }
   }
 

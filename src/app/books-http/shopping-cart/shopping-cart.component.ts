@@ -25,7 +25,6 @@ export class ShoppingCartComponent implements OnInit {
 
   loadBooks(): void{
     this.bookHttpService.getCartBooks().subscribe((response)=>{
-      console.log(response);
       this.cartBooks = response;
     });
   }

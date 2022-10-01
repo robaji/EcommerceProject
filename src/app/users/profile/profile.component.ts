@@ -27,7 +27,6 @@ export class ProfileComponent implements OnInit {
 
   loadBooks(): void{
     this.bookHttpService.getBoughtBooks().subscribe((response)=>{
-      console.log(response);
       this.boughtBooks = response;
     });
   }

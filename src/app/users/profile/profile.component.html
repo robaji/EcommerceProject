@@ -4,10 +4,10 @@
         <div class="col-2"></div>
         <div class="col-8">
             <h3>User Profile</h3>
-            <h4 [innerText]=[accountId]></h4>
-            <h4 [innerText]=[email]></h4>
-            <h4 [innerText]=[firstName]></h4>
-            <h4 [innerText]=[lastName]></h4>
+            <h6 [innerText]=[accountId]></h6>
+            <h6 [innerText]=[email]></h6>
+            <h6 [innerText]=[firstName]></h6>
+            <h6 [innerText]=[lastName]></h6>
         </div>
         <div>
             <table class="table table-striped">
@@ -28,11 +28,6 @@
                         <td>{{ eachBook.quantity }}</td>
                         <td>${{ eachBook.bookCost }}</td>
                         <td>{{ eachBook.date }}</td>
-                        <!-- <td>
-                             <button type="button" class="btn btn-danger" (click)="deleteBook(eachBook.bookId)">
-                                <span class="material-symbols-outlined">delete</span>
-                            </button>
-                        </td> -->
                     </tr>
                 </tbody>
             </table>
