@@ -8,7 +8,8 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./logout.component.css']
 })
 export class LogoutComponent implements OnInit {
-
+  fortesting1 = "test-successful";
+  fortesting2 = "test-successful";
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {

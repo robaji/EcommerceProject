@@ -8,14 +8,14 @@ import { AuthService } from '../users/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
+  fortesting1 = "test-successful";
+  fortesting2 = "test-successful";
+
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
-  // lets create a method to access the AuthService isLoggedIn variable,
-    // because we would want to manipulate teh hyperlinks accordingly
-  
-  // we can call this method from HeaderComponents template
+
   retrieveIsUserLoggedIn(): boolean{
     return this.authService.isLoggedIn;
   }

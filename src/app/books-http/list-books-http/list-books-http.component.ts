@@ -10,7 +10,6 @@ import { CartBook } from '../cart-book.model';
   styleUrls: ['./list-books-http.component.css']
 })
 export class ListBooksHttpComponent implements OnInit {
-  showAddBookForm: boolean = false;
   allBooks: BookModel[] = [];
 
   newBook: BookModel = {

@@ -6,12 +6,13 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { ListBooksHttpComponent } from './books-http/list-books-http/list-books-http.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UserComponent } from './users/user/user.component';
 import { LogoutComponent } from './users/logout/logout.component';
 import { ProfileComponent } from './users/profile/profile.component';
 import { ShoppingCartComponent } from './books-http/shopping-cart/shopping-cart.component';
 import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

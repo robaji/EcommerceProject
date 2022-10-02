@@ -1,4 +1,7 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { UserComponent } from './user.component';
 
@@ -8,7 +11,9 @@ describe('UserComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserComponent ]
+      declarations: [ UserComponent ],
+      imports: [ FormsModule, HttpClientModule],
+      providers: [HttpClient]
     })
     .compileComponents();
 
@@ -20,4 +25,12 @@ describe('UserComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it("accountId",()=>{
+    expect(component.user.accountId).toBe(0)
+  })
+
+  it("errorRegisterMessage",()=>{
+    expect(component.errorRegisterMessage).toBe("")
+  })
 });

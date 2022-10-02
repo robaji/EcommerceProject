@@ -20,4 +20,17 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it(`should be able to test variable string 'fortesting1`, () => {
+    const fixture = TestBed.createComponent(HeaderComponent);
+    const app = fixture.componentInstance;
+    expect(app.fortesting1).toEqual('test-successful');
+  });
+
+  it(`should be able to test variable string 'fortesting2`, () => {
+    const fixture = TestBed.createComponent(HeaderComponent);
+    const app = fixture.componentInstance;
+    expect(app.fortesting2).toEqual('test-successful');
+  });
+
 });

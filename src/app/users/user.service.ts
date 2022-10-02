@@ -16,8 +16,6 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
-  // the incomming UserModel will have only the userName and userPassword
-  // the outgoing/return UserModel will have all the information of that user who has logged in if it was a successfull login
   validate(user: LoginAccount): Observable<LoginAccount>{     
        return this.httpClient.post<LoginAccount>(this.loginUrl, user);
     }

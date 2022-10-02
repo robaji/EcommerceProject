@@ -25,32 +25,28 @@ export class BooksHttpService {
 
   constructor(private httpClient: HttpClient) { }
 
-  // R - Read
   getAllBooks(): Observable<BookModel[]>{
     return this.httpClient.get<BookModel[]>(this.baseUrl);
   }
 
-  // C - Create
   addBook(cartBook: CartBook): Observable<CartBook>{
     return this.httpClient.post<CartBook>(this.cartUrl, cartBook);
   }
 
-    // U - Update
-    updateBook(updateBook: BookModel): Observable<BookModel>{
-      return this.httpClient.put<BookModel>(this.baseUrl, updateBook);
-    }
+  updateBook(updateBook: BookModel): Observable<BookModel>{
+    return this.httpClient.put<BookModel>(this.baseUrl, updateBook);
+  }
   
-    // D - Delete
-    deleteBook(bookId: number): Observable<void> {
-      this.cartDelete = {
-        bookId: bookId,
-        accountId: parseInt(sessionStorage.getItem("accountId")!)
+  deleteBook(bookId: number): Observable<void> {
+    this.cartDelete = {
+      bookId: bookId,
+      accountId: parseInt(sessionStorage.getItem("accountId")!)
       }
-      console.log(this.cartDelete);
-      const headers = new HttpHeaders().set('content-type', 'application/json');
-      return this.httpClient.post<void>(this.deleteCartUrl, 
-        this.cartDelete, 
-        { 'headers': headers });
+    console.log(this.cartDelete);
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+    return this.httpClient.post<void>(this.deleteCartUrl, 
+    this.cartDelete, 
+    { 'headers': headers });
     }
   
     getABook(bookId: number): Observable<BookModel>{

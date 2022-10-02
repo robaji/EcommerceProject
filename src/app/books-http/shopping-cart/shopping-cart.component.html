@@ -8,9 +8,7 @@
                 <thead>
                     <tr>
                         <th>BOOK ID</th>
-                        <!-- <th>IMAGE</th> -->
                         <th>TITLE</th>
-                        <!-- <th>AUTHOR</th> -->
                         <th>QUANTITY</th>
                         <th>COST</th>
                         <th></th>
@@ -20,9 +18,7 @@
                 <tbody>
                     <tr *ngFor="let eachBook of cartBooks">
                         <td>{{ eachBook.bookId }}</td>
-                        <!-- <td><img [src]="eachBook.bookImageUrl" height="200px" width="120px"></td> -->
                         <td>{{ eachBook.bookTitle }}</td>
-                        <!-- <td>{{ eachBook.bookAuthor }}</td> -->
                         <td>{{ eachBook.quantity }}</td>
                         <td>${{ eachBook.bookCost }}</td>
                         <td>
@@ -33,13 +29,11 @@
                     </tr>
                 </tbody>
             </table>
-            
         </div>
-        
         <div class="col-2" style="float:right;"><button type="button" class="btn btn-success" (click)="checkout()">
             CHECKOUT
             <span class="material-symbols-outlined">shopping_cart_checkout</span>
-            </button></div>
+            </button>
+        </div>
     </div>
-
 </div>
